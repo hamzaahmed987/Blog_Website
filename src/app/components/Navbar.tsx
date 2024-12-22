@@ -5,9 +5,11 @@ import Image from "next/image"
 import Link from "next/link"
 import SearchBar from "./search-bar"
 import ThemeToggle from "./theme-btn"
+import { useTheme } from "next-themes"
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const { theme } = useTheme() // Get the current theme
 
   return (
     <div className="max-w-[1918px] maxh-h-[100px] mx-auto bg-slate-50 dark:bg-slate-900">
@@ -17,37 +19,41 @@ const Navbar = () => {
           <div className="flex-shrink-0">
             {/* Logo for large screens */}
             <div className="hidden md:block w-[120px] h-[30px]">
+              {/* Light theme logo */}
               <Image
                 alt="logo"
                 src="/logo.png"  // Default light theme logo
                 width={120}
                 height={30}
-                className="w-full h-full object-contain dark:hidden"  // Only visible in light theme
+                className={`w-full h-full object-contain ${theme === 'dark' ? 'hidden' : 'block'}`} // Hide in dark theme
               />
+              {/* Dark theme logo */}
               <Image
                 alt="logo-dark"
                 src="/darkLogo.png"  // Dark theme logo
                 width={120}
                 height={30}
-                className="w-full h-full object-contain hidden dark:block"  // Only visible in dark theme
+                className={`w-full h-full object-contain ${theme === 'dark' ? 'block' : 'hidden'}`} // Show in dark theme
               />
             </div>
 
             {/* Logo for small screens */}
             <div className="block md:hidden w-[80px] h-[20px]">
+              {/* Light theme small logo */}
               <Image
                 alt="logo-small"
                 src="/icon.png"  // Default light theme small logo
                 width={80}
                 height={20}
-                className="w-full h-full object-contain dark:hidden"  // Only visible in light theme
+                className={`w-full h-full object-contain ${theme === 'dark' ? 'hidden' : 'block'}`} // Hide in dark theme
               />
+              {/* Dark theme small logo */}
               <Image
                 alt="logo-small-dark"
                 src="/darkIcon.png"  // Dark theme small logo
                 width={80}
                 height={20}
-                className="w-full h-full object-contain hidden dark:block"  // Only visible in dark theme
+                className={`w-full h-full object-contain ${theme === 'dark' ? 'block' : 'hidden'}`} // Show in dark theme
               />
             </div>
           </div>
