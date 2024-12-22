@@ -77,7 +77,7 @@ export default function Footer() {
         <div className="mx-auto max-w-7xl px-4 py-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <div className="flex items-center gap-2">
-              <div className="relative max-h-[56px] max-w-[60px] p-1 h- rounded-2xl w-8 bg-gray-800 dark:hidden">
+              <div className="relative max-h-[56px] max-w-[60px] p-1 h- rounded-2xl w-8 bg-gray-800 ">
                 <Image
                   src="/darkIcon.png" 
                   alt="MetaBlog"
